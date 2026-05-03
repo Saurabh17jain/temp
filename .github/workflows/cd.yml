@@ -1,0 +1,29 @@
+name: CD Pipeline (EC2 - No Docker)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/app  # change this
+
+            # Pull latest code
+            git pull origin main
+
+            # Install dependencies
+            npm install
+
+            #run
+            pm2 start index.js --name my-app || pm2 restart my-app

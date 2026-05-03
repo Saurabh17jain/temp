@@ -17,3 +17,8 @@ app.get("/cpu", (req, res) => {
 app.get("/host", (req, res) => {
     res.send(os.hostname());
 });
+const PORT = 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
