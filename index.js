@@ -4,7 +4,7 @@ import os from "os";
 export const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Hello World");
+    res.send("How are you");
 });
 
 app.get("/cpu", (req, res) => {
