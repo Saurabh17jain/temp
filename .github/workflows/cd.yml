@@ -19,6 +19,6 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             sudo git pull origin master
-            sudo cd /home/ubuntu/temp
+            cd /home/ubuntu
             sudo npm install
             sudo pm2 node index.js --name temp || pm2 restart all
