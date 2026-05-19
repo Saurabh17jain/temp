@@ -21,4 +21,4 @@ jobs:
             cd /home/ubuntu/temp
             sudo git pull origin master
             sudo npm install
-            sudo pm2 node index.js --name temp || sudo pm2 restart all
+            sudo pm2 start index.js --name temp || sudo pm2 restart all
